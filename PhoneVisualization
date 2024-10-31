@@ -1,0 +1,45 @@
+import matplotlib.pyplot as plt
+import pandas as pd 
+import numpy as np
+
+plt.style.use('bmh')
+df = pd.read_csv('paste file path here')
+
+
+
+#Setting axis variables
+x = df['Model']
+y = df['Storage']
+a = df['Model']
+b = df['Price']
+c = df['Model']
+d = df['Battery']
+e = df['Company']
+
+#Setting up a figure for a subplot with a 2x2 grid. The code interprets the grid as 1x1 though. 
+fig, axs = plt.subplots(2, 2)
+
+#Modifying each subplot to the corresponding spot. [0, 0] would be top left and [0, 1] would be top right.
+axs[0, 0].bar(x, b)
+axs[0, 0].set_xlabel('Model')
+axs[0, 0].set_ylabel('Price($)')
+axs[0, 1].plot(x, y)
+axs[0, 1].set_xlabel('Model')
+axs[0, 1].set_ylabel('Storage(GB)')
+axs[1, 0].stem(b, d)
+axs[1, 0].set_xlabel('Price$')
+axs[1, 0].set_ylabel('Battery(mAh)')
+axs[1, 0].set_title('Price for Battery')
+axs[1, 1].hist(e)
+axs[1, 1].set_title('Number of Models')
+
+
+#Setting up a second figure for a pie chart.
+plt.figure()
+plt.pie(d, labels = x, radius = 1, autopct = '%0.01f%%', explode=[.05, .05, .05, .05, .05, .05, .05, .05])
+plt.title("Battery % Comared to Other Phones")
+plt.xlabel('Battery(mAh)', fontsize = 20)
+
+
+#This makes the graphs show up.
+plt.show()
