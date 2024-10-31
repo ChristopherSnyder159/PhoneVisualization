@@ -26,6 +26,8 @@ y = df['Price($)']
 plt.bar(x, y)
 plt.show()
 ```
+
+An example file path could look like this 'C:/Users/ExampleName/Downloads/pricesnew.csv'
 When run, a figure window will pop up with the graph. This is just a simple graph of the model of the phone being the x axis and and price of the phones being the y axis. 
 
 ## References 
